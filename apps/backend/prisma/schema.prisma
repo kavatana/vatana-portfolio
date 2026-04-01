@@ -1,0 +1,54 @@
+// apps/backend/prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum ProjectLevel {
+  MINI
+  STANDARD
+  MASTER
+}
+
+enum ProjectDomain {
+  FULLSTACK
+  FRONTEND
+  BACKEND
+  API
+  MOBILE
+  DEVOPS
+  AI_ML
+}
+
+enum ProjectStatus {
+  LIVE
+  DRAFT
+  WIP
+}
+
+// ─── Models ───────────────────────────────────────────────────────────────────
+
+model Project {
+  id          Int           @id @default(autoincrement())
+  title       String
+  slug        String        @unique
+  description String
+  level       ProjectLevel  @default(STANDARD)
+  domain      ProjectDomain @default(FULLSTACK)
+  primaryLang String
+  techStack   String[]
+  status      ProjectStatus @default(DRAFT)
+  featured    Boolean       @default(false)
+  liveUrl     String?
+  repoUrl     String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
