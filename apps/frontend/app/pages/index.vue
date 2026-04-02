@@ -132,7 +132,7 @@
           <div class="social" aria-label="Social links">
             <a
               class="icon-btn"
-              href="https://github.com/"
+              href="https://github.com/kavatana"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -403,7 +403,58 @@
             </div>
           </section>
         </header>
+          <!-- 🔥 FEATURED SECTION -->
+          <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-6">Featured Work</h2>
 
+            <div class="grid md:grid-cols-3 gap-6">
+
+              <!-- DISCIPLINE CORE -->
+              <div class="p-6 rounded-xl border border-green-400 bg-green-400/10">
+                <h3 class="text-lg font-semibold mb-2">
+                  DISCIPLINE CORE Trading System
+                </h3>
+
+                <p class="text-sm text-gray-400 mb-4">
+                  Rule-based trading execution system focused on disciplined decision-making,
+                  tracking performance, and removing emotional trading.
+                </p>
+
+                <div class="text-xs text-green-400">Active Development</div>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="p-6 rounded-xl border border-white/10 bg-white/5">
+                <h3 class="text-lg font-semibold mb-2">
+                  Online Garage Sale Platform
+                </h3>
+
+                <p class="text-sm text-gray-400 mb-4">
+                  Platform for second-hand and handmade products with simple and affordable user experience.
+                </p>
+              </div>
+
+              <!-- Project 3 -->
+              <div class="p-6 rounded-xl border border-white/10 bg-white/5">
+                <h3 class="text-lg font-semibold mb-2">
+                  Portfolio System
+                </h3>
+
+                <p class="text-sm text-gray-400 mb-4">
+                  Structured project system with filtering, tagging, and scalable architecture.
+                </p>
+              </div>
+
+            </div>
+          </section>
+            <div class="mb-12">
+              <a
+                href="#projects"
+                class="inline-block px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition text-sm"
+              >
+                View Full Project Archive →
+              </a>
+            </div>
         <!-- Project list -->
         <section class="project-list" aria-label="Project list">
           <article
@@ -563,14 +614,30 @@
               </details>
             </div>
 
-            <footer class="card__footer">
+              <footer class="card__footer">
+
               <span class="fine">
                 Primary: <strong>{{ p.primaryLanguage }}</strong>
               </span>
+
               <span class="sep" aria-hidden="true">•</span>
+
               <span class="fine">
                 {{ p.status === 'LIVE' ? 'Shipping / maintained' : 'In active development' }}
               </span>
+
+              <!-- 🔥 ADD THIS -->
+              <span class="sep" aria-hidden="true">•</span>
+
+              <a
+                v-if="p.github"
+                :href="p.github"
+                target="_blank"
+                class="tag"
+              >
+                GitHub
+              </a>
+
             </footer>
           </article>
 
@@ -930,7 +997,7 @@ const PROJECTS: Project[] = [
   languages: ['C++'],
   tech: ['C++', 'CLI'],
   highlights: ['Fast', 'Simple'],
-  repoUrl: 'https://github.com/yourname/laptopcat',
+  github: "https://github.com/kavatana/laptopcat",
   demoCommand: 'run command'
 },
 ]
@@ -1188,7 +1255,7 @@ function scrollToId(id: string) {
   Clipboard utilities (permalinks + email)
 -------------------------------- */
 
-const email = 'you@example.com'
+const email = 'kavatanaa@gmail.com'
 const resumeUrl = '/resume.pdf' // Put a real PDF in /public/resume.pdf
 const toast = ref('')
 const hintText = ref('Tip: click language/tech tags to filter.')
